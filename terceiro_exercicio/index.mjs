@@ -1,4 +1,6 @@
 import inquirer from "inquirer";
+import emptyFieldException from "./exceptions/emptyFieldException.mjs";
+import invalidInputException from "./exceptions/invalidInputException.mjs";
 
 inquirer.prompt([
     { name: 'firstNumber', message: 'Insira o primeiro número inteiro:' },
@@ -6,10 +8,10 @@ inquirer.prompt([
     { name: 'thirdNumber', message: 'Insira o terceiro número inteiro:' },
 ]).then((answer) => {
     if (!answer.firstNumber || !answer.secondNumber || !answer.thirdNumber) {
-        throw new Error('Você não inseriu nenhum número, tente novamente!') //valida se foi inserido algo no input
+        emptyFieldException()
     } else
         if (!Number.isInteger(parseInt(answer.firstNumber)) || !Number.isInteger(parseInt(answer.secondNumber)) || !Number.isInteger(parseInt(answer.thirdNumber))) {
-            throw new Error('O sistema apenas aceita números inteiros, você inseriu um valor inválido!') //valida se foi inserido um NaN
+            invalidInputException()
         }
     //caso os valores inseridos passem pela validacao, entao serao impressos os numeros em ordem decrescente:
     //colocado em um array para utilizar o .sort 

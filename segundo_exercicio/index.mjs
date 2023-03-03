@@ -1,15 +1,17 @@
 import inquirer from "inquirer";
+import emptyFieldException from "./exceptions/emptyFieldException.mjs";
+import invalidInputException from "./exceptions/invalidInputException.mjs";
 
 inquirer.prompt([
     { name: 'number', message: 'Insira um número inteiro:' }
 ]).then((answer) => {
     if (!answer.number) {
-        throw new Error('Você não inseriu nenhum número, tente novamente!') //valida se foi inserido algo no input
+        emptyFieldException()
     } else
         if (!Number.isInteger(parseInt(answer.number))) {
-            throw new Error('O sistema apenas aceita números inteiros, você inseriu um valor inválido!') //valida se foi inserido um NaN
+            invalidInputException()
         }
-    //caso os valores inseridos passem pela validacao, entao é feito o cálculo conforme a regra:
+    //caso o valor inserido passe pela validacao, entao é feito o cálculo conforme a regra:
     //1 - se não é divisível por nenhum
     //2 - se é divisível por 2
     //3 - se é divisível por 5
