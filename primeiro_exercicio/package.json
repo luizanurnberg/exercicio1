@@ -1,0 +1,22 @@
+{
+  "name": "exercicio1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luizanurnberg/exercicio1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luizanurnberg/exercicio1/issues"
+  },
+  "homepage": "https://github.com/luizanurnberg/exercicio1#readme",
+  "dependencies": {
+    "inquirer": "^9.1.4"
+  }
+}
