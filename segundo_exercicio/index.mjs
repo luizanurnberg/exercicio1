@@ -14,7 +14,7 @@ inquirer.prompt([
     //2 - se é divisível por 2
     //3 - se é divisível por 5
     //4 - se é divisível por 10
-    var number = parseInt(answer.number)
+    const number = parseInt(answer.number)
     if (number % 2 != 0 && number % 5 != 0 && number % 10 != 0) {
         console.log(`O número inserido não é divisível nem por 2, 5 ou 10. Tente novamente!`)
     } else {
