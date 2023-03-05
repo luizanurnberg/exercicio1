@@ -19,10 +19,9 @@ inquirer.prompt([
     // //2 - caso contrário, entao é definido que o numero é ímpar
     for (let i = 0; i < arrayOfNumbers.length; i++) {
         if (arrayOfNumbers[i] % 2 == 0) {
-            console.log(`O número ${arrayOfNumbers[i]} inserido é par`)
+            console.log(`O número ${arrayOfNumbers[i]} é par`)
         } else {
-            console.log(`O número ${arrayOfNumbers[i]} inserido é ímpar`)
+            console.log(`O número ${arrayOfNumbers[i]} é ímpar`)
         }
     }
-
 }).catch((error) => console.log(error))
