@@ -1,21 +1,23 @@
 import inquirer from "inquirer";
 import emptyFieldException from "./exceptions/emptyFieldException.mjs";
-import invalidInputException from "./exceptions/invalidInputException.mjs";
+import arraySizeException from "./exceptions/arraySizeException.mjs";
 
 inquirer.prompt([
-    { name: 'firstNumber', message: 'Insira o primeiro número inteiro:' },
-    { name: 'secondNumber', message: 'Insira o segundo número inteiro:' },
-    { name: 'thirdNumber', message: 'Insira o terceiro número inteiro:' },
+    { name: 'numbers', message: 'Insira 3 valores inteiros, sendo necessário separá-los por vírgula:' }
 ]).then((answer) => {
-    if (!answer.firstNumber || !answer.secondNumber || !answer.thirdNumber) {
+    var inputNumbers = answer.numbers
+    var arrayOfNumbers = inputNumbers.split(',')
+    
+    if (!answer.numbers) {
         emptyFieldException()
     } else
-        if (!Number.isInteger(parseInt(answer.firstNumber)) || !Number.isInteger(parseInt(answer.secondNumber)) || !Number.isInteger(parseInt(answer.thirdNumber))) {
-            invalidInputException()
+        if (arrayOfNumbers.length != 3) {
+            arraySizeException()
         }
-    //caso os valores inseridos passem pela validacao, entao serao impressos os numeros em ordem decrescente:
-    //colocado em um array para utilizar o .sort 
-    let numbers = [parseInt(answer.firstNumber), parseInt(answer.secondNumber), parseInt(answer.thirdNumber)]
-    numbers.sort((a, b) => b - a)
-    console.log(numbers)
+    /*
+        Caso os valores inseridos forem válidos, será impresso em ordem descrescente com o auxilio do método .sort()
+    */
+    arrayOfNumbers.sort((a, b) => b - a)
+    console.log(arrayOfNumbers)
+
 }).catch((error) => console.log(error))

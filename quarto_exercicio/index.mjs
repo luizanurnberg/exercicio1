@@ -15,10 +15,11 @@ inquirer.prompt([
             if (parseInt(answer.number) > 12 || parseInt(answer.number) <= 0) {
                 valueSmaller()
             }
-    //caso o valor inserido passe pela validacao, entao é impresso o mes conforme a regra:
-    //1 - janeiro , 2 - fevereiro , 3 - março , 4 - abril , 5 - maio , 6 - junho ,
-    //7 - julho , 8 - agosto , 9 - setembro , 10 - outubro , 11 - novembro , 12 - dezembro
+    /*
+        Caso os valores inseridos forem válidos, será impresso o mês correspondente ao número digitado
+    */
     const number = parseInt(answer.number)
+
     switch (number) {
         case 1:
             console.log('O valor inserido corresponde ao mes de Janeiro')
@@ -57,4 +58,5 @@ inquirer.prompt([
             console.log('O valor inserido corresponde ao mes de Dezembro')
             break;
     }
+
 }).catch((error) => console.log(error))

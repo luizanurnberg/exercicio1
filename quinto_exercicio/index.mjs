@@ -15,8 +15,9 @@ inquirer.prompt([
             if (parseInt(answer.number) <= 1) {
                 valueSmaller()
             }
-    //caso o valor inserido passe pela validacao, entao é feita a impressao conforme a regra:
-    //for fará a impressao dos valores de 1 até o valor inserido
+    /*
+        Caso os valores inseridos forem válidos, serão impressos todos os valores de 1 até o número digitado
+    */
     var number = parseInt(answer.number)
     for (var i = 1; i <= number; i++) {
         console.log(i)

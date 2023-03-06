@@ -8,15 +8,18 @@ inquirer.prompt([
 ]).then((answer) => {
     var inputNumbers = answer.numbers
     var arrayOfNumbers = inputNumbers.split(',')
+    
     if (!answer.numbers) {
         emptyFieldException()
     } else
-        if (arrayOfNumbers.length > 5 || arrayOfNumbers.length < 5) {
+        if (arrayOfNumbers.length != 5) {
             arraySizeException()
         }
-    // //caso o valor inserido passe pela validacao, então será feita a validacao de par ou impar conforme a regra:
-    // //1 - se divisível por 2, entao deverá ser impresso o número + que ele é par
-    // //2 - caso contrário, entao é definido que o numero é ímpar
+    /*
+        Caso os valores inseridos forem válidos, então será feita a validacao de par ou impar conforme a regra:
+        - Se divisível por 2, então deverá ser impresso o número + que ele é par
+        - Caso contrário, entao é definido que o numero é ímpar
+    */
     for (let i = 0; i < arrayOfNumbers.length; i++) {
         if (arrayOfNumbers[i] % 2 == 0) {
             console.log(`O número ${arrayOfNumbers[i]} é par`)

@@ -11,13 +11,16 @@ inquirer.prompt([
     var firstArrayOfNumbers = firstInput.split(',')
     var secondInput = answers.secondInput
     var secondArrayOfNumbers = secondInput.split(',')
+
     if (!answers.firstInput || !answers.secondInput) {
         emptyFieldException()
     } else
         if (firstArrayOfNumbers.length != 5 || secondArrayOfNumbers.length != 5) {
             arraySizeException()
         }
-    //caso os valores inseridos passem pela validacao, então será feita a comparacao dos valores:
+    /*
+        Caso os valores inseridos forem válidos, é feita a comparação com auxílio do .filter e .includes
+    */
     const equalValues = secondArrayOfNumbers.filter(number => firstArrayOfNumbers.includes(number))
     if (equalValues == 0) {
         console.log('Você não incluiu nenhum valor igual, tente novamente!')

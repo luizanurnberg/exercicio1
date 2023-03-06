@@ -1,4 +1,4 @@
-//valida se o valor incluído no input é realmente um número 
+//Valida se o valor incluído no input é realmente um número 
 function invalidInputException() {
     throw new Error('O sistema apenas aceita números inteiros, você inseriu um valor inválido!')
 }
